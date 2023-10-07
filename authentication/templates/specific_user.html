@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Specific user page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Specific user page</h1>
+    <form action="{% url 'specific_user_page' %}" method = "post">
+        {% csrf_token %}
+        <p>Select user id</p>
+        <select name="user_id" id="">
+        {% for user in users %}
+            <option value="{{user.id}}">{{user.id}}</option>
+        {% endfor %}
+        </select>
+        <button type = "submit">Get data</button>
+    </form> 
+
+    {% if user %}
+            <br>
+            <p>ID: {{user.id}}</p>
+            <p>EMAIL: {{user.email}}</p>
+            <p>PASSWORD: {{user.password}}</p>
+            <p>LAST LOGIN: {{user.last_login}}</p>
+            <p>FIRST NAME: {{user.first_name}}</p>
+            <p>MIDDLE NAME: {{user.middle_name}}</p>
+            <p>LAST NAME: {{user.last_name}}</p>
+    {% endif %}
+    
+    <button><a href="{% url 'user_page' %}">Back</a></button>
+{% endblock content %}

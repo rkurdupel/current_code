@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Home Page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Home Page</h1>
+   
+    <a href="{% url 'book_home_page' %}">Book Page</a>
+    
+    {% if is_admin %}
+        
+    <a href="{% url 'author_home_page' %}">Author Page</a>
+    <a href="{% url 'order_home_page' %}">Order Page</a>
+    <a href="{% url 'user_page' %}">User Page</a>
+    
+    {% endif %}
+
+    <br>
+    <a href="{% url 'logout_page' %}">Press to log out</a>
+{% endblock content %}

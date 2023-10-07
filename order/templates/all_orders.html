@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>All Orders Page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>All Orders Page</h1>
+    {% for order in orders %}
+        {{order.id}}
+    {% endfor %}
+
+{% endblock content %}

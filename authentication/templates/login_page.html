@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Login Page</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form action="{% url 'login_page' %}" method = "post">
+        {% csrf_token %}
+        <h1>Login page</h1>
+        <hr>
+        <h1>Email</h1>
+        <input type="email" name = "email">
+        <h1>Password</h1>
+        <input type="password" name = "password">
+        <button type = "submit">Submit</button>
+        <a href="{% url 'register_page' %}">Register an account</a>
+    </form>
+{% endblock content %}

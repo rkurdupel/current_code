@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block title %}
+        <title>Books page</title>
+    {% endblock title %}
+
+</head>
+<body style="display: flex;">
+    <div style="width: 600px; height: 500px; border: 1px solid;">
+        <h1>Our books</h1>
+        <ul>
+            {% for book in display_books %}
+            <li>{{book.id}} - {{ book.name }} - {{ book.description }} - {{book.count}}</li>
+            {% endfor %}
+        </ul>
+        <div style="display: flex; border: 1px solid; position: absolute; bottom: 10px; ">
+
+            <form method="post">
+                {% csrf_token %}
+                <label for="search_book">Search:</label>
+                <input type="text" name="search_book" id="search_book" value="{{ search_book }}">
+                <button type="submit">Search</button>
+            </form>
+            {% if search_term %}
+            <h2>Search Results for "{{ search_term }}"</h2>
+            {% endif %}
+
+        </div>
+    </div>
+    <div style="border: 1px solid; width: 300px; height: 500px;">
+        <h2>Filter books</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <p>have such author:</p>
+            {% for author in display_authors %}
+            <input type="checkbox" name="authors" id="authors" value="{{ author.id }}">{{ author.name }}
+            {% endfor %}
+            
+            <!-- <input type="text" name="search_book" id="search_book" value="{{ search_book }}"> -->
+            <p>have such description:</p>
+            {% for description in display_description %}
+            <input type="checkbox" name="description" id="description" value="{{ description }}">{{ description }}
+            {% endfor %}
+            <button type="submit">filter</button>
+        </form>
+
+        <!-- <input type="checkbox" id="author" name="author" value="author"> -->
+
+        
+    </div>
+</body>
+</html>

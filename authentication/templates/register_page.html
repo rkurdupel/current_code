@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Register Page</title>
+{% endblock title %}
+
+{% block content %}
+    <form method = "post" action="{% url 'register_page' %}">
+        {% csrf_token %}
+        <h1>Register</h1>
+        <hr>
+        
+        <br>
+        <h1>First name</h1>
+        <input type="text" name = "first_name">
+        <h1>Middle name</h1>
+        <input type="text" name = "middle_name">
+        <h1>Last name</h1>
+        <input type="text" name = "last_name">
+        <h1>Email address</h1>
+        <input type="email" name = "email">
+        <h1>Password</h1>
+        <input type="password" name = "password">
+        <br><br><br>
+        <select name="role">
+            <option value="0">visitor</option>
+            <option value="1">librarian</option>
+        </select>
+        <button type = "submit">Sumbit</button>
+        <a href="{% url 'login_page' %}">Already have an account? Sign in</a>
+    </form>
+
+
+{% endblock content %}

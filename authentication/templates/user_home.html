@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>User Page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>User Page</h1>
+    <a href="{% url 'all_users_page' %}">View all users</a>
+    <a href="{% url 'specific_user_page' %}">View specific user</a>
+    <br>
+    <button><a href="{% url 'home_page' %}">Back</a></button>
+{% endblock content %}

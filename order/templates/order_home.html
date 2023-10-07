@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Order Page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Order Page</h1>
+    {% if is_admin %}
+        <a href="{% url 'all_orders' %}">all orders info</a>
+        <br>
+        <a href="">close the order</a>
+        <br>
+    {% endif %}
+    
+    <a href="">all my orders</a>
+    <br>
+    <a href="{% url 'create_order' %}">create an order</a>
+
+{% endblock content %}

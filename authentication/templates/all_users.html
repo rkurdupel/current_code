@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>All users page</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>All users page</h1>
+    {% for user in users %}
+        <hr>
+        <p>ID: {{user.id}}</p>
+        <p>EMAIL: {{user.email}}</p>
+        <p>PASSWORD: {{user.password}}</p>
+        <p>LAST LOGIN: {{user.last_login}}</p>
+        <p>FIRST NAME: {{user.first_name}}</p>
+        <p>MIDDLE NAME: {{user.middle_name}}</p>
+        <p>LAST NAME: {{user.last_name  }}</p>
+        
+        <p></p>
+        <br>
+    {% endfor %}
+{% endblock content %}
